@@ -1,0 +1,861 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        /* Adicione estilos responsivos aqui, se necessário */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            text-align: center;
+            background: url('worldmap.svg');
+            background-size: cover;
+            position: relative;
+        }
+
+        .circle {
+      width: 700px;
+      height: 700px;
+      border: 3px solid #7cef8b;
+      border-radius: 50%;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(0);
+      animation: pulse 2s infinite alternate;
+      box-sizing: border-box;
+      background-color: transparent;
+    }
+
+    .circle:before,
+    .circle:after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      border: 3px solid transparent;
+      width: 100%;
+      height: 100%;
+      animation: wave 2s infinite linear;
+    }
+
+    .circle:before {
+      animation-delay: 0.5s;
+      border-top-color: #7cef8b;
+    }
+
+    .circle:after {
+      animation-delay: 1s;
+      border-top-color: #7cef8b;
+    }
+
+    @keyframes pulse {
+      0% {
+        transform: translate(-50%, -50%) scale(0);
+        opacity: 0;
+      }
+      100% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+      }
+    }
+
+    @keyframes wave {
+      0% {
+        transform: scale(0.5);
+        opacity: 0.7;
+      }
+      100% {
+        transform: scale(1.5);
+        opacity: 0;
+      }
+    }
+
+        .code-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+      
+      
+        #percentage-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 100px;
+    color: #fff;
+    background-color: rgba(26, 61, 26, 0.7);
+    padding: 60px 120px;
+    border-radius: 15px;
+    margin-top: 50px; /* Reduzi a margem superior para dar espaço para o movimento para cima */
+    margin-bottom: 20px; /* Ajusta a margem inferior da porcentagem */
+    width: fit-content;
+    position: relative;
+}
+
+.percentage {
+    position: absolute;
+    left: -50px;
+    top: -90px; /* Adicione esta linha para mover para cima */
+}
+
+
+
+
+
+
+        #background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+
+        /* Outros estilos aqui */
+
+        /* Estilos adicionais conforme necessário */
+
+        h1 {
+            font-family: 'ans-serif', Tahoma, Geneva, Verdana, sans-serif;
+            /* Aqui você pode substituir 'Segoe UI' por qualquer outra fonte desejada */
+            color: #333; /* Cor do texto */
+            /* Outros estilos de fonte */
+            font-size: 25px; /* Tamanho da fonte */
+            font-weight: bold; /* Peso da fonte (negrito) */
+            text-transform: uppercase; /* Transforma o texto em maiúsculas */
+            letter-spacing: 2px; /* Espaçamento entre as letras */
+        }
+    </style>
+    
+</head>
+
+<body>
+    <br>
+    <br> 
+    <br>
+    <br>
+    <br>
+    <br> 
+    <br>
+    <br>
+    <br>
+    <br>
+    <br> 
+    <br>
+    <br>
+    <br>
+    <br> 
+    <br>
+    <br>
+    <br>
+    <br> 
+    <br>
+    <br>
+    <br>
+    <br> 
+    <br>
+    <br>
+    <br>
+    <br> 
+    <br>
+    <br>
+    <br>
+    <br> 
+    <br>
+    <br>
+    <br>
+    <br> 
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="code-container">
+            <audio id="audioPlayer" style="display: none">
+                <source src="iqoption.mp3" type="audio/mp3">
+                Seu navegador não suporta o elemento de áudio.
+            </audio>
+        
+            <audio id="attentionAudio" style="display: none">
+                <source src="atencao.mp3" type="audio/mp3">
+                Seu navegador não suporta o elemento de áudio.
+            </audio>
+        
+            <script>
+                window.addEventListener('DOMContentLoaded', function () {
+                    var audioPlayer = document.getElementById('audioPlayer');
+                    audioPlayer.play();
+                });
+            </script>
+        
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>IQOPTION</title>
+            <script src="https://kit.fontawesome.com/317d2ee8b3.js" crossorigin="anonymous"></script>
+            <style>
+            
+
+
+
+            
+                body {
+                    font-family: 'Arial', sans-serif;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                    height: 100vh;
+                    margin: 0;
+                    background: url('worldmap.svg');
+                    background-size: cover;
+                    position: relative;
+                }
+
+                
+                #info-container {
+                    position: absolute;
+                    top: -30px;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    text-align: center;
+                    color: #6dfe25;
+                    font-size: px;
+                }
+        
+                #info-container span {
+                    font-weight: bold;
+                    color: #f39c12;
+                }
+        
+                #indicator {
+                    width: 400px;
+                    padding: 2px;
+                    border-radius: 25px;
+                    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+                    text-align: center;
+                    margin-top: 40px;
+                    position: relative;
+                    overflow: hidden;
+                }
+        
+                .border-animation {
+                    position: absolute;
+                    width: 0;
+                    height: 0;
+                    border: 2px solid transparent;
+                    animation: borderAnimate 2s infinite linear;
+                }
+        
+                
+
+                #asset-image {
+    width: 100px; /* Aumenta a largura da imagem */
+    height: 100px; /* Aumenta a altura da imagem */
+    margin-bottom: 10px; /* Ajusta a margem inferior da imagem */
+    margin-top: 260px; /* Ajusta a margem superior da imagem */
+}
+
+
+#percentage-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 100px;
+    color: #fff;
+    background-color: rgba(23, 50, 23, 0.7);
+    padding: 60px 100px;
+    border-radius: 15px;
+    width: fit-content;
+    position: absolute; /* Mudar para absolute */
+    top: -1%; /* Definir a distância do topo em relação ao viewport */
+    left: 50%; /* Centralizar horizontalmente */
+    transform: translateX(-50%); /* Corrigir a centralização horizontal */
+}
+
+
+
+
+
+
+
+
+
+#asset-name-container {
+    background-color: rgba(236, 232, 232, 0.174);
+    padding: 7px;
+    border-radius: 30px;
+    /* Remova a propriedade position: absolute */
+    /* Remova as propriedades top, left e transform */
+}
+
+        
+                 
+                /* Tamanho da fonte do ativo */
+                #asset-name { 
+                    font-size: 20px;
+                    font-weight: bold;
+                    color: #fdfdfd;
+                }
+        
+        
+                #buy-chance,
+                #sell-chance {
+                    font-size: 20px;
+                    margin-bottom: 10px;
+                    color: #50504e;
+                }
+        
+                #buy-percentage,
+                #sell-percentage {
+                    font-size: 24px;
+                    font-weight: bold;
+                    color: #333;
+                }
+        
+                #buy-btn,
+                #sell-btn {
+                    padding: 10px;
+                    margin: 5px;
+                    font-size: 18px;
+                    cursor: pointer;
+                    border: none;
+                    border-radius: 5px;
+                    transition: background-color 0.3s ease;
+                }
+        
+                #buy-btn {
+                    background-color: #4caf50;
+                    color: white;
+                }
+        
+                #buy-btn:hover {
+                    background-color: #45a049;
+                }
+        
+                #sell-btn {
+                    background-color: #f44336;
+                    color: white;
+                }
+        
+                #sell-btn:hover {
+                    background-color: #d32f2f;
+                }
+        
+                #message-container {
+                    background-color: rgba(10, 16, 4, 0.8);
+                    /* Fundo branco para a mensagem */
+                    padding: 17px;
+                    border-radius: 30px;
+                    margin-top: 20px;
+                }
+        
+                #status-message {
+                    font-size: 18px;
+                    color: #ff0000;
+                    /* Red color for the status message */
+                    font-weight: bold;
+                }
+        
+               
+        
+        
+                /* ... Your existing styles ... */
+        
+                #disable-right-click-message {
+                    display: none;
+                    position: fixed;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    background-color: #fff;
+                    padding: 20px;
+                    border: 2px solid #e74c3c;
+                    border-radius: 10px;
+                    z-index: 1000;
+                }
+                .percentage-circle {
+    display: inline-block;
+    width: 180px;
+    height: 49px;
+    line-height: 46px;
+    border-radius: 150%;
+    background-color: transparent; /* Remover o fundo verde */
+    color: #39f31c; /* Cor do texto (branco) */
+    text-align: center;
+    font-weight: bold;
+    margin-left: 7px;
+    margin-top: -7px; /* Mover o círculo para cima em 7 pixels */
+}
+
+.percentage-circle span {
+    border: 4px solid #000; /* Adicionar uma borda preta ao redor do texto */
+    padding: 5px 10px; /* Adicionar algum espaço interno para a borda */
+}
+
+
+
+        
+    #buy-percentage {
+        font-size: 25px;
+        font-weight: bold;
+        color: #78f611; /* Verde claro */
+        display: inline-block;
+    }
+
+    /* Adicione a regra para #sell-percentage */
+    #sell-percentage {
+        font-size: 25px;
+        font-weight: bold;
+        color: #f61111; /* Vermelho */
+        display: inline-block;
+    }
+        
+            </style>
+        
+            <script>
+                var isRightClickMessageVisible = false;
+        
+        document.addEventListener('contextmenu', function (e) {
+            e.preventDefault();
+            toggleDisableRightClickMessage();
+        });
+        
+        document.addEventListener('click', function (e) {
+            if (isRightClickMessageVisible) {
+                toggleDisableRightClickMessage();
+            }
+        });
+        
+        function toggleDisableRightClickMessage() {
+            var messageContainer = document.getElementById('disable-right-click-message');
+            isRightClickMessageVisible = !isRightClickMessageVisible;
+        
+            if (isRightClickMessageVisible) {
+                messageContainer.style.display = 'block';
+            } else {
+                messageContainer.style.display = 'none';
+            }
+        }
+            </script>
+        </head>
+        
+        <body>
+
+            <div id="percentage-container">
+                <span id="max-percentage" class="percentage-circle">50%</span>
+            </div>
+            
+            
+            <br>
+            <br>
+            <div id="info-container">
+                <div id="asset-image-container"><img id="asset-image" src="" alt="Asset Image"></div>
+                <div id="asset-name-container"><div id="asset-name"></div></div>
+                <br>
+                <br>
+                <br>
+            </div>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            
+            <div id="indicator">
+       
+                
+                
+                
+                
+                
+                </div>
+            </br>
+            </br>
+            </br>
+            </br>
+            </br>
+            </br>
+            </br>
+            </br>
+            </br>
+                <div id="buy-chance" style="background-color: #000000; color: white; padding: 2px; border-radius: 18px;">ENTRADA PARA COMPRA: <span id="buy-percentage" class="percentage-circle">50%</span></div>
+
+                <div id="sell-chance" style="background-color: #000000; color: white; padding: 2px; border-radius:18px;">ENTRADA PARA VENDA: <span id="sell-percentage" class="percentage-circle">50%</span></div>
+                
+        
+                <div id="message-container">
+                    <p id="status-message"></p>
+                </div>
+                <br>
+                <div class="border-animation"></div>
+                <div id="timeframe-container">
+                    <div id="timeframe-title" style="background-color: rgb(254, 253, 253); color: rgb(0, 0, 0); border-radius: 30px; font-size: 24px; padding: 3px; font-style: italic; font-weight: bold;">AS ANÁLISES SERÃO EM<br>M1-M5</div>
+                    <div id="timeframe-buttons">
+                    </div>
+                </div>
+        
+   
+            </div>
+        
+            <div id="disable-right-click-message">
+                <p>Ops, estamos usando segurança máxima! Você não tem permissão para acessar ao código! Se persistir, seu login será bloqueado.</p>
+            </div>
+        
+            <script>
+ 
+
+            
+
+                function shouldShowOTC() {
+    var currentTime = new Date();
+    var dayOfWeek = currentTime.getDay();
+    var currentHour = currentTime.getHours();
+
+    var shouldShowOTC = false;
+
+    if ((dayOfWeek >= 1 && dayOfWeek <= 5 && currentHour >= 18 && currentHour <= 22) || dayOfWeek === 0 || dayOfWeek === 6) {
+        shouldShowOTC = true;
+    }
+
+    return shouldShowOTC;
+}
+
+function getRandomAsset() {
+    const assets = ["EUR/GBP", "EUR/USD", "GBP/JPY", "USD/JPY", "AUD/CAD", "GBP/USD", "EUR/JPY"];
+    const randomIndex = Math.floor(Math.random() * assets.length);
+    return assets[randomIndex];
+}
+
+let currentAsset = "";
+
+function updateAsset() {
+    function changeAsset() {
+        currentAsset = shouldShowOTC() ? getRandomAsset() + "-OTC" : getRandomAsset();
+
+        const assetImageName = currentAsset.replace("/", "") + ".png";
+        const assetImagePath = assetImageName;
+
+        document.getElementById('asset-image').src = assetImagePath;
+        document.getElementById('asset-name').innerText = currentAsset;
+    }
+
+    changeAsset();
+
+ 
+}
+
+
+
+
+
+// Função para atualizar a porcentagem acima da imagem do ativo
+function updatePercentageAboveAsset(buyPercentage, sellPercentage) {
+    // Encontra a maior porcentagem entre a porcentagem de compra e venda
+    const maxPercentage = Math.max(buyPercentage, sellPercentage);
+    // Atualiza o conteúdo do elemento com a maior porcentagem
+    document.getElementById('max-percentage').innerText = `${maxPercentage}%`;
+}
+
+
+
+
+// Chamada inicial para atualizar a porcentagem acima da imagem do ativo
+updatePercentageAboveAsset(Math.floor(Math.random() * 100), Math.floor(Math.random() * 100));
+
+// Defina suas mensagens em um array
+const messages = [
+    'Aguarde, estou analizando o gráfico..',
+    'Analizando Price Action..',
+    'Analisando Fluxo de Velas..',
+    'Verificando Padrões de Velas..',
+    'Estou vendo um possível sinal..',
+    'Aguarde que estou analizando..',
+    // Adicione quantas mensagens você quiser
+];
+
+// Variável para rastrear o índice da próxima mensagem
+let nextMessageIndex = 0;
+
+async function updateData() {
+    updateAsset();
+
+    const buyPercentage = Math.floor(Math.random() * 100);
+    const sellPercentage = 100 - buyPercentage;
+
+    document.getElementById('buy-percentage').innerText = `${buyPercentage}%`;
+    document.getElementById('sell-percentage').innerText = `${sellPercentage}%`;
+
+    // Atualiza a porcentagem acima da imagem do ativo
+    updatePercentageAboveAsset(buyPercentage, sellPercentage);
+
+    const timeframe = Math.random() < 0.3 ? 'M5' : 'M1';
+    if (buyPercentage >= 90) {
+        const entryTime = getEntryTime();
+        const mensagem = `<span style="color: yellow; font-size: 22px;">ENTRADA</span> <span style="color: yellow; font-size: 22px;">${currentAsset}</span> <span style="color: yellow; font-size: 22px;">${timeframe}</span> <span style="color: #6dfe25; font-size: 22px;">COMPRAR ÀS</span> <span style="color: #6dfe25; font-size: 22px;">${entryTime}</span>`;
+            document.getElementById('status-message').innerHTML = mensagem;
+        var audioPlayer = document.getElementById('attentionAudio');
+        audioPlayer.play();
+
+        setTimeout(function() {
+            updateData();
+        }, 15000);                 
+    } else if (sellPercentage >= 90) {
+        const entryTime = getEntryTime();
+        const mensagem = `<span style="color: yellow; font-size: 22px;">ENTRADA</span> <span style="color: yellow; font-size: 22px;">${currentAsset}</span> <span style="color: yellow; font-size: 22px;">${timeframe}</span> <span style="color: #6dfe25; font-size: 22px;">VENDER ÀS</span> <span style="color: #6dfe25; font-size: 22px;">${entryTime}</span>`;
+        document.getElementById('status-message').innerHTML = mensagem;
+        var audioPlayer = document.getElementById('attentionAudio');
+        audioPlayer.play();
+        
+        setTimeout(function() {
+            updateData();
+        }, 15000);
+    } else {
+        // Exibe a próxima mensagem e atualiza o índice para a próxima mensagem
+        document.getElementById('status-message').innerText = messages[nextMessageIndex];
+        nextMessageIndex = (nextMessageIndex + 1) % messages.length; // Isso garante que o índice não ultrapasse o tamanho do array
+    
+        setTimeout(function() {
+            updateData();
+        }, 6000);
+    }
+}
+
+
+
+function getEntryTime() {
+    const currentTime = new Date();
+    const entryTime = new Date(currentTime.getTime() + 60000); // Adicionando 2 minutos (120000 milissegundos)
+    const hours = entryTime.getHours().toString().padStart(2, '0');
+    const minutes = entryTime.getMinutes().toString().padStart(2, '0');
+    return `${hours}:${minutes}`;
+}
+
+// Função para atualizar a mensagem de entrada
+function updateEntryMessage() {
+                // Lógica para exibir a mensagem de entrada com um intervalo mais longo
+                document.getElementById('status-message').innerText = 'Mensagem de entrada';
+            }
+
+            // Intervalo para atualizar a mensagem de entrada a cada 15 segundos
+//setInterval(updateEntryMessage, 15000);
+
+updateData(); // Atualiza o ativo inicialmente // Atualiza os ativos a cada 7 segundos
+
+function changeTimeframe(timeframe) {
+    const selectedBtn = document.querySelector(`.timeframe-btn[data-timeframe="${timeframe}"]`);
+    if (selectedBtn) {
+        selectedBtn.classList.toggle('selected-timeframe');
+    }
+
+    document.getElementById('selected-timeframe').innerText = timeframe;
+
+    showNotification(timeframe);
+}
+
+        
+                document.getElementById('buy-btn').addEventListener('click', () => {
+                    window.location.href = 'https://login.iqoption.com/pt/login';
+                });
+        
+                document.getElementById('sell-btn').addEventListener('click', () => {
+                    window.location.href = 'https://login.iqoption.com/pt/login';
+                });
+        
+               
+            </script>
+                
+        </body>
+        
+
+    </div>
+
+    <div class="code-container">
+        <style>
+
+
+            
+            #container {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            #titulo {
+                background-color: #adf189; /* Adiciona um fundo verde para destacar o título */
+                color: #102409; /* Cor do texto */
+                padding: 5px; /* Espaçamento interno para melhorar a aparência */
+                border-radius: 5px; /* Borda arredondada */
+            }
+            
+            #mensagem {
+                width: 200px;
+                height: 400px; /* Aumentei a altura para acomodar mais sinais */
+                padding: 10px;
+                border: 3px solid #00ff00; /* Borda verde */
+                border-radius: 8px;
+                margin-bottom: 20px;
+                resize: none; /* Impede redimensionamento da área de texto */
+            }
+            
+            #baixarBtn {
+                padding: 10px 20px;
+                font-size: 16px;
+                background-color: #10c010;
+                color: #fff;
+                border: none;
+                border-radius: 15px;
+                cursor: pointer;
+                margin-top: 10px;
+                animation: pulse 2s infinite; /* Adiciona a animação de pulsação */
+            }
+            
+            @keyframes pulse {
+                0% {
+                    transform: scale(1);
+                }
+                50% {
+                    transform: scale(1.1);
+                }
+                100% {
+                    transform: scale(1);
+                }
+            }
+            
+            #titulo {
+                background-color: #adf189;
+                color: hsl(104, 60%, 9%);
+                padding: 5px;
+                border-radius: 5px;
+            }
+            
+            #mensagem {
+                width: 200px;
+                height: 400px;
+                padding: 10px;
+                border: 3px solid #00ff00;
+                border-radius: 8px;
+                margin-bottom: 20px;
+                resize: none;
+            }
+            
+            #imagemIcone {
+                width: 10px; /* Ajuste a largura conforme necessário */
+                height: 80px; /* Ajuste a altura conforme necessário */
+                margin-top: 0px; /* Ajuste a margem conforme necessário */
+            }
+        </style>
+    </head>
+    <body>
+        <div id="container">
+            <label for="mensagem" id="titulo">SINAIS VIP DE HOJE:</label>
+            <br>
+            <textarea id="mensagem" name="mensagem" readonly></textarea>
+            <button id="baixarBtn" onclick="baixarInformacoes()">BAIXAR LISTA DE SINAIS VIP</button>
+            <a href="#" onclick="copiarSinais()">
+                <img id="imagemIcone" src="copy.png" alt="Ícone de cópia">
+            </a>
+        </div>
+    
+        <script>
+            function generateSignal(ativo, direcao, horario, timeframe) {
+                const horaSinal = parseInt(horario.split(':')[0]);
+                const isHorarioValido = horaSinal >= 18 && horaSinal <= 23;
+    
+                const isFinalDeSemana = new Date().getDay() === 0 || new Date().getDay() === 6;
+    
+                const ativoFormatado = (isHorarioValido || isFinalDeSemana) ? `${ativo}-OTC` : ativo;
+    
+                return `${ativoFormatado} ${direcao} ${horario} ${timeframe}`;
+            }
+    
+            function generateDailySignals() {
+                const mensagemTextArea = document.getElementById('mensagem');
+                const titulo = document.getElementById('titulo');
+                const storedDate = localStorage.getItem('generatedDate');
+                const currentDate = new Date();
+                const diaFormatado = String(currentDate.getDate()).padStart(2, '0');
+                const mesFormatado = String(currentDate.getMonth() + 1).padStart(2, '0');
+                const anoFormatado = currentDate.getFullYear();
+                const dataFormatada = `${diaFormatado}/${mesFormatado}/${anoFormatado}`;
+    
+                titulo.textContent = `SINAIS VIP DE HOJE: ${dataFormatada}`;
+    
+                if (storedDate === dataFormatada) {
+                    // Se a lista já foi gerada hoje, carrega do armazenamento local
+                    const storedSignals = localStorage.getItem('dailySignals');
+                    mensagemTextArea.value = storedSignals;
+                } else {
+                    // Se ainda não gerou a lista para hoje, gera uma nova
+                    mensagemTextArea.value = ''; // Limpa a área de texto
+    
+                    const ativos = ["EUR/GBP", "EUR/USD", "GBP/JPY", "USD/JPY", "AUD/CAD", "GBP/USD", "EUR/JPY"];
+                    const direcoes = ["CALL", "PUT"];
+                    const timeframes = ["M1", "M5"];
+                    const sinaisPorDia = 50;
+    
+                    const horas = Array.from({ length: sinaisPorDia }, () => {
+                        const hour = String(Math.floor(Math.random() * 24)).padStart(2, '0');
+                        const minute = String(Math.floor(Math.random() * 60)).padStart(2, '0');
+                        return `${hour}:${minute}`;
+                    });
+    
+                    for (let i = 0; i < sinaisPorDia; i++) {
+                        const ativo = ativos[Math.floor(Math.random() * ativos.length)];
+                        const direcao = direcoes[Math.floor(Math.random() * direcoes.length)];
+                        const horario = horas[i];
+                        const timeframe = timeframes[Math.floor(Math.random() * timeframes.length)];
+    
+                        const novoSinal = generateSignal(ativo, direcao, horario, timeframe);
+                        mensagemTextArea.value += novoSinal + '\n';
+                    }
+    
+                    // Salva os sinais gerados e a data no armazenamento local
+                    localStorage.setItem('dailySignals', mensagemTextArea.value);
+                    localStorage.setItem('generatedDate', dataFormatada);
+                }
+            }
+    
+            function baixarInformacoes() {
+                var conteudo = document.getElementById('mensagem').value;
+                var blob = new Blob([conteudo], { type: 'text/plain' });
+                var url = window.URL.createObjectURL(blob);
+    
+                var a = document.createElement('a');
+                a.href = url;
+                a.download = `sinaisvip${getDateFormatted()}.txt`; // Nome do arquivo com a data
+    document.body.appendChild(a);
+                                            a.click();
+                                    
+                                            window.URL.revokeObjectURL(url);
+                                        }
+                                    
+                                        function copiarSinais() {
+                                            var mensagemTextArea = document.getElementById('mensagem');
+                                            mensagemTextArea.select();
+                                            document.execCommand('copy');
+                                    
+                                            // Exibe uma mensagem após a cópia
+                                            alert('Sinais copiados!');
+                                        }
+                                    
+                                        function getDateFormatted() {
+                                            const dataAtual = new Date();
+                                            const diaFormatado = String(dataAtual.getDate()).padStart(2, '0');
+                                            const mesFormatado = String(dataAtual.getMonth() + 1).padStart(2, '0');
+                                            const anoFormatado = dataAtual.getFullYear();
+                                            return `${diaFormatado}${mesFormatado}${anoFormatado}`;
+                                        }
+                                    
+                                        // Chamada inicial para gerar sinais no carregamento da página
+                                        generateDailySignals();
+    </script>
+                        </body>
+</body>
+</html>
