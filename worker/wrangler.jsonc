@@ -1,0 +1,15 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "faq-refund-worker",
+  "main": "src/index.mjs",
+  "compatibility_date": "2026-08-28",
+  "vars": {
+    // Preencha com o ID da sua conta Cloudflare (dash.cloudflare.com → Workers & Pages → Account ID)
+    "CF_ACCOUNT_ID": "",
+    // Nome do gateway criado em AI → AI Gateway
+    "CF_GATEWAY_ID": "",
+    // Modelo do Workers AI usado para responder a FAQ
+    "CF_AI_MODEL": "@cf/meta/llama-3.1-8b-instruct"
+  }
+  // Segredo (não vai no arquivo): npx wrangler secret put CLOUDFLARE_API_TOKEN
+}
