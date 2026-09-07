@@ -7,6 +7,7 @@ porque o app está na Vercel sem repositório ligado.
 | --- | --- |
 | `20260907_trava_dm_unica_por_pessoa.sql` | Uma DM automática por pessoa, mesmo que ela comente várias vezes no post. |
 | `20260907_reconciliador_comentarios.sql` | Recupera comentários que o webhook do Instagram não entrega. |
+| `20260907_reconciliador_paginacao_sob_demanda.sql` | Corta as chamadas à API do Instagram: só pagina quando há órfão, com varredura profunda de hora em hora. |
 
 ## Trava de DM única
 
